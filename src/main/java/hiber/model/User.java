@@ -31,6 +31,16 @@ public class User {
       this.email = email;
    }
 
+    public void setCar(Car car) {
+        if (this.car != null) {
+            this.car.setUser(null);
+        }
+        this.car = car;
+        if (car != null && car.getUser() != this) {
+            car.setUser(this);
+        }
+    }
+
    public Long getId() {
       return id;
    }
@@ -64,5 +74,5 @@ public class User {
    }
 
    public Car getCar() { return car; }
-   public void setCar(Car car) { this.car = car; }
+
 }
